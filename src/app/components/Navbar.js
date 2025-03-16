@@ -13,9 +13,9 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="flex justify-around items-center h-15 bg-red-200">
+    <div className="flex justify-around items-center h-15">
       <div>
-        <div>
+        <div className="cursor-pointer">
           <Image
             src="/logo.svg"
             alt="logo"
@@ -30,7 +30,7 @@ export default function Navbar() {
           {links.map((link) => (
             <li
               key={link}
-              className="px-5 text-[#737A91] cursor-pointer text-[16px]"
+              className="px-5 text-[#737A91] cursor-pointer text-[16px] hover:text-[#0154AA]"
             >
               {link}
             </li>
@@ -39,18 +39,22 @@ export default function Navbar() {
       </div>
       <div className="flex justify-around items-center h-auto">
         <div className="flex items-center h-auto">
-          {/* <Form action="/search">
-            <input name="query" />
-            <button>Resume Builder</button>
-          </Form> */}
-          <div>
-            <input className="bg-yellow-200" />
+          <div className="flex items-center justify-evenly w-[261px] h-[39px] bg-[#F6F9FF] rounded-[8px]">
+            <div className="px-2">
+              <Image
+                src="/search.svg"
+                alt="search"
+                width={15}
+                height={15}
+                priority
+                className=""
+              />
+            </div>
+            <input className="focus:outline-0" placeholder="Search" />
           </div>
-          <div className="bg-[#0154AA] rounded-[8px]">
-            <button className="">
-              <p className="text-[16px] px-[20px] py-[10px] text-white">
-                Resume Builder
-              </p>
+          <div className="px-4 \">
+            <button className="bg-[#0154AA] rounded-[8px] h-[39px] w-[147px] cursor-pointer">
+              <p className="text-[16px]  text-white">Resume Builder</p>
             </button>
           </div>
         </div>
