@@ -6,7 +6,7 @@ import ProfileNav from "./components/ProfileNav";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="size-fit">
       <Navbar />
       <MainBody />
       {/* <JobCard /> */}
