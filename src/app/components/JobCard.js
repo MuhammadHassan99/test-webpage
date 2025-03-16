@@ -1,13 +1,16 @@
 import Image from "next/image";
 
-export default function JobCard() {
+export default function JobCard({ promoted }) {
+  console.log(promoted);
   return (
-    <div className=" rounded-[10px] bg-white">
+    <div className="w-[182px] rounded-[10px] bg-white">
       <div className="grid grid-col-3 content-between py-[10px] px-[20px]">
         <div className="">
-          <div>
-            <p className="text-[#333333] text-[10px] font-bold">Promoted</p>
-          </div>
+          {promoted ?? (
+            <div>
+              <p className="text-[#333333] text-[10px] font-bold">Promoted</p>
+            </div>
+          )}
           <div className="flex items-center justify-between py-1">
             <div className="bg-[#FAFAFA] rounded-[9.11px]">
               <div className="py-[8px] px-[6px]">

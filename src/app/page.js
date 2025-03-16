@@ -6,11 +6,11 @@ import ProfileNav from "./components/ProfileNav";
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center h-100 bg-[#F4F4F4] ">
-      {/* <Navbar />
-      <MainBody /> */}
+    <div className="">
+      <Navbar />
+      <MainBody />
       {/* <JobCard /> */}
-      <ProfileNav />
+      {/* <ProfileNav /> */}
       {/* <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
