@@ -5,19 +5,21 @@ import ProfileNav from "./ProfileNav";
 export default function Content() {
   const count = [1, 2, 3, 4, 5];
   return (
-    <div className="h-full flex items-start bg-[#F4F4F4] pt-[25px] px-[50px]">
-      <div>
+    <div className="flex items-start bg-[#F4F4F4] pt-[25px] px-[50px]">
+      <div className="hidden md:block">
         <ProfileNav />
       </div>
       <div className="px-5">
         <div className="pb-[5px]">
-          <p className="text-[22px]">Find your dream job, Albert</p>
-          <p className="text-[14px]">
+          <p className="text-[22px] font-semibold text-center md:text-start">
+            Find your dream job, <span className="text-[#0154AA]">Albert!</span>
+          </p>
+          <p className="text-[14px] text-center md:text-start">
             Explore the latest job openings and apply for the best opportunities
             available today!
           </p>
         </div>
-        <div className="">
+        <div className="hidden md:block">
           <div className="flex items-center rounded-[10px] h-[77px] p-2 bg-white">
             <input
               type="text"
@@ -55,24 +57,27 @@ export default function Content() {
           <div>
             <p className="text-[#737A91] text-[14px]">Similiar:</p>
           </div>
-          <div className="border-1 border-[#737A91] rounded-[5px] py-[8px] px-[15px] mx-2 cursor-pointer">
-            <p className="text-[12px] text-[#737A91]">Frontend</p>
-          </div>
-          <div className="border-1 border-[#737A91] rounded-[5px] py-[8px] px-[15px] mx-2 cursor-pointer">
-            <p className="text-[12px] text-[#737A91]">Backend</p>
-          </div>
-          <div className="border-1 border-[#737A91] rounded-[5px] py-[8px] px-[15px] mx-2 cursor-pointer">
-            <p className="text-[12px] text-[#737A91]">Graphic Designer</p>
-          </div>
+
+          <p className="text-[12px] text-[#737A91] border-1 border-[#737A91] rounded-[5px] py-[8px] px-[15px] mx-2 cursor-pointer hover:bg-[#0154AA] hover:text-white hover:border-[#F4F4F4]">
+            Frontend
+          </p>
+
+          <p className="text-[12px] text-[#737A91] border-1 border-[#737A91] rounded-[5px] py-[8px] px-[15px] mx-2 cursor-pointer hover:bg-[#0154AA] hover:text-white hover:border-[#F4F4F4]">
+            Backend
+          </p>
+
+          <p className="min-w-[120px] text-[12px] text-[#737A91] border-1 border-[#737A91] rounded-[5px] py-[8px] px-[15px] mx-2 cursor-pointer hover:bg-[#0154AA] hover:text-white hover:border-[#F4F4F4]">
+            Graphic Designer
+          </p>
         </div>
-        <div>
+        <div className="border-b border-[#E9ECEF] py-4">
           <div className="flex items-center pb-[15px]">
             <p className="text-[18px]">Featured jobs</p>
-            <p className="px-2 text-[14px] text-[#0154AA] underline">
+            <p className="px-2 text-[14px] text-[#0154AA] underline cursor-pointer">
               See Featured Jobs
             </p>
           </div>
-          <div className="flex">
+          <div className="grid justify-items-center gap-4 md:flex">
             {count.map((i) => (
               <div key={i} className="pr-5">
                 <JobCard />
@@ -83,12 +88,12 @@ export default function Content() {
         <div>
           <div className="flex items-center py-[15px]">
             <p className="text-[18px]">Recommended Jobs</p>
-            <p className="px-2 text-[14px] text-[#0154AA] underline">
+            <p className="px-2 text-[14px] text-[#0154AA] underline cursor-pointer">
               {" "}
               See Recommended Jobs
             </p>
           </div>
-          <div className="flex">
+          <div className="grid justify-items-center gap-4 md:flex">
             {count.map((i) => (
               <div key={i} className="pr-5">
                 <JobCard promoted={true} />

@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import Form from "next/form";
+import { useState } from "react";
 
 export default function Navbar() {
   const links = [
@@ -12,8 +14,14 @@ export default function Navbar() {
     "Notifications",
   ];
 
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <div className="flex justify-around items-center h-15">
+    <div className="flex justify-evenly items-center py-5">
       <div>
         <div className="cursor-pointer">
           <Image
@@ -25,20 +33,25 @@ export default function Navbar() {
           />
         </div>
       </div>
-      <div className="">
-        <ul className="flex justify-between">
+      <div className="hidden md:block">
+        <ul className="flex items-center">
           {links.map((link) => (
             <li
               key={link}
-              className="px-5 text-[#737A91] cursor-pointer text-[16px] hover:text-[#0154AA]"
+              className="px-4 text-[#737A91] cursor-pointer text-[16px] hover:text-[#0154AA] hover:font-semibold"
             >
               {link}
             </li>
           ))}
         </ul>
       </div>
-      <div className="flex justify-around items-center h-auto">
-        <div className="flex items-center h-auto">
+      <div className="flex items-center md:hidden">
+        <button onClick={toggleMobileMenu} className="text-[#737A91]">
+          Menu
+        </button>
+      </div>
+      <div className="hidden md:block">
+        <div className="flex items-center ">
           <div className="flex items-center justify-evenly w-[261px] h-[39px] bg-[#F6F9FF] rounded-[8px]">
             <div className="px-2">
               <Image
@@ -52,14 +65,15 @@ export default function Navbar() {
             </div>
             <input className="focus:outline-0" placeholder="Search" />
           </div>
-          <div className="px-4 \">
+          <div className="px-4">
             <button className="bg-[#0154AA] rounded-[8px] h-[39px] w-[147px] cursor-pointer">
-              <p className="text-[16px]  text-white">Resume Builder</p>
+              <p className="text-[16px] text-white">Resume Builder</p>
             </button>
           </div>
         </div>
-        <div>
-          {" "}
+      </div>
+      <div>
+        <div className="cursor-pointer">
           <Image
             src="/profile-pic.svg"
             alt="profile-pic"
@@ -69,26 +83,21 @@ export default function Navbar() {
           />
         </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-white shadow-lg z-10">
+          <ul className="flex flex-col items-center py-4">
+            {links.map((link) => (
+              <li
+                key={link}
+                className="py-2 text-[#737A91] cursor-pointer hover:text-[#0154AA]"
+              >
+                {link}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
-
-// <nav>
-//       <ul>
-//         <li>
-//           <Link href="/profile">
-//             <a>Profile</a>
-//           </Link>
-//         </li>
-//         <li>
-//           <Link href="/settings">
-//             <a>Settings</a>
-//           </Link>
-//         </li>
-//         <li>
-//           <Link href="/logout">
-//             <a>Logout</a>
-//           </Link>
-//         </li>
-//       </ul>
-//     </nav>
