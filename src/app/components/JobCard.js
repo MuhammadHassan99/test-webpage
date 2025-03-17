@@ -50,7 +50,9 @@ export default function JobCard({ promoted }) {
               />
               <p className="text-[12px] pl-2">
                 1 day ago |{" "}
-                <span className="text-[#0154AA]">22 applicants</span>
+                <span className="text-[#0154AA] cursor-pointer">
+                  22 applicants
+                </span>
               </p>
             </div>
           </div>
