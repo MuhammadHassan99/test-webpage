@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 
 const ProfileNav = () => {
@@ -17,7 +16,7 @@ const ProfileNav = () => {
           />
         </div>
         <div className="relative">
-          <div className="absolute -top-[45px] right-[64px] grid grid-col-2 justify-items-center ">
+          <div className="absolute -top-[45px] right-[75px] grid grid-col-2 justify-items-center ">
             <div className="">
               <Image
                 src="/picture.svg"
@@ -29,7 +28,9 @@ const ProfileNav = () => {
               />
             </div>
             <div className="grid justify-items-center">
-              <p className="text-[18px] font-semibold">Albert Flores</p>
+              <p className="text-[18px] text-[#333333] font-bold">
+                Albert Flores
+              </p>
               <p className="text-[14px]">Senior Product Designer | UI/UX</p>
               <p className="text-[14px]">
                 Designer | Graphic Designer | Web...

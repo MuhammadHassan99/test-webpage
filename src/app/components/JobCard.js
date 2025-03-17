@@ -24,8 +24,8 @@ export default function JobCard({ promoted }) {
             </div>
 
             <div className="pl-2">
-              <p className="text-[14px]">UI/UX Designer</p>
-              <p className="text-[12px]">Teams</p>
+              <p className="text-[14px] text-[#333333]">UI/UX Designer</p>
+              <p className="text-[12px] text-[#333333]">Teams</p>
             </div>
           </div>
           <div className="pt-1 pb-3">
@@ -48,7 +48,10 @@ export default function JobCard({ promoted }) {
                 height={12}
                 priority
               />
-              <p className="text-[12px] pl-2">1 day ago | 22 applicants</p>
+              <p className="text-[12px] pl-2">
+                1 day ago |{" "}
+                <span className="text-[#0154AA]">22 applicants</span>
+              </p>
             </div>
           </div>
         </div>

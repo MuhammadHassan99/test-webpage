@@ -15,9 +15,14 @@ export default function Navbar() {
   ];
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLogoutClicked, setIsLogoutClicked] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleProfileClick = () => {
+    setIsLogoutClicked(!isLogoutClicked);
   };
 
   return (
@@ -38,7 +43,7 @@ export default function Navbar() {
           {links.map((link) => (
             <li
               key={link}
-              className="px-4 text-[#737A91] cursor-pointer text-[16px] hover:text-[#0154AA] hover:font-semibold"
+              className="px-4 text-[#737A91] cursor-pointer text-[13px] hover:text-[#0154AA] hover:font-semibold"
             >
               {link}
             </li>
@@ -52,7 +57,7 @@ export default function Navbar() {
       </div>
       <div className="hidden md:block">
         <div className="flex items-center ">
-          <div className="flex items-center justify-evenly w-[261px] h-[39px] bg-[#F6F9FF] rounded-[8px]">
+          <div className="flex items-center justify-evenly py-2 px-2 lg:px-4 bg-[#F6F9FF] rounded-[8px]">
             <div className="px-2">
               <Image
                 src="/search.svg"
@@ -66,8 +71,10 @@ export default function Navbar() {
             <input className="focus:outline-0" placeholder="Search" />
           </div>
           <div className="px-4">
-            <button className="bg-[#0154AA] rounded-[8px] h-[39px] w-[147px] cursor-pointer">
-              <p className="text-[16px] text-white">Resume Builder</p>
+            <button className="bg-[#0154AA] rounded-[8px] px-4 py-2 cursor-pointer">
+              <p className="text-[12px] lg:text-[14px] text-white">
+                Resume Builder
+              </p>
             </button>
           </div>
         </div>
@@ -80,9 +87,16 @@ export default function Navbar() {
             width={38}
             height={38}
             priority
+            onClick={toggleProfileClick}
           />
         </div>
       </div>
+
+      {isLogoutClicked && (
+        <div className="absolute top-15 flex justify-center items-center right-0 bg-white z-10 w-[100px] h-[80px] px-5 rounded-[10px]">
+          <p className="text-center cursor-pointer hover:underline">Logout</p>
+        </div>
+      )}
 
       {isMobileMenuOpen && (
         <div className="absolute top-16 left-0 right-0 bg-white shadow-lg z-10">
